@@ -1,0 +1,29 @@
+{
+  "Guid": "cce82b87-d3ce-4b9b-a027-e6e64377e5ef",
+  "Title": "",
+  "Priority": 0,
+  "Request": {
+    "Path": {
+      "Matchers": [
+        {
+          "Name": "WildcardMatcher",
+          "Pattern": "/favicon.ico",
+          "IgnoreCase": false
+        }
+      ]
+    },
+    "Methods": [
+      "get"
+    ],
+    "Headers": []
+  },
+  "Response": {
+    "StatusCode": 200,
+    "UseTransformer": false,
+    "Headers": {
+      "Server": "Kestrel",
+      "Transfer-Encoding": "chunked",
+      "Date": "Tue, 03 Apr 2018 10:57:00 GMT"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "Title": "Process Payment for 1234-1234-1234-1234",
+  "Priority": 1,
+  "Request": {
+    "Path": {
+      "Matchers": [
+        {
+          "Name": "WildcardMatcher",
+          "Pattern": "/payment",
+          "IgnoreCase": true
+        }
+      ]
+    },
+    "Methods": ["post"],
+    "Headers": [
+      {
+        "Name": "Authorization",
+        "Matchers": [
+          {
+            "Name": "WildcardMatcher",
+            "Pattern": "Bearer *",
+            "IgnoreCase": true
+          }
+        ]
+      }
+    ],
+    "Body": {
+      "Matcher": {
+        "Name": "JmesPathMatcher",
+        "Pattern": "cardNumber == '1234-1234-1234-1234'"
+      }
+    }
+  },
+  "Response": {
+    "StatusCode": 200,
+    "BodyAsJson": {
+      "uniqueId": 1234567890,
+      "status": "Completed"
+    },
+    "UseTransformer": false,
+    "Headers": {
+      "Cache-Control": "no-cache",
+      "Connection": "close",
+      "Content-Type": "application/json; charset=utf-8",
+      "Date": "Wed, 24 Apr 2019 09:47:15 GMT",
+      "Expires": "-1",
+      "Pragma": "no-cache",
+      "Server": "Microsoft-IIS/8.5"
+    }
+  }
+}
