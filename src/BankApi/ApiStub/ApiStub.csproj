@@ -6,10 +6,6 @@
     <RootNamespace>Bank.ApiStub</RootNamespace>
     <LangVersion>8</LangVersion>
     <StartupObject>Bank.ApiStub.Program</StartupObject>
-    <UserSecretsId>8d6887d2-7fce-4d03-bc1b-22387ab8566c</UserSecretsId>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <DockerfileContext>..\..</DockerfileContext>
-    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
