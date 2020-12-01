@@ -25,7 +25,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             serviceCollection.Configure<BankClientOptions>(configuration.GetSection("bank-api-options"));
 
-
             serviceCollection.AddSingleton<IBankClient, BankClient>();
             serviceCollection.AddTransient<BankAuthHandler>();
             serviceCollection.AddTransient<BankExceptionHandler>();
@@ -51,7 +50,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddRefitClient<TClient>(settings)
                 .SetClientBaseAddress()
-                .AddHttpMessageHandler<BankAuthHandler>()
+                //.AddHttpMessageHandler<BankAuthHandler>()     // uncomment to authenticate the Bank Api
                 .AddHttpMessageHandler<BankExceptionHandler>();
         }
 

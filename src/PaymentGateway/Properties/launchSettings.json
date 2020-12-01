@@ -29,7 +29,13 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-      "publishAllPorts": true
+      "publishAllPorts": true,
+      "environmentVariables": {
+        "bank-api-options__ApiProtocol": "http",
+        "bank-api-options__ApiHost": "host.docker.internal:51053",
+        "bank-api-options__AuthApiHost": "host.docker.internal:51053"
+      },
+      "httpPort": 51054
     }
   }
 }

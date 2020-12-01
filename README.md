@@ -99,13 +99,59 @@ dotnet build Checkout.sln
 dotnet test Checkout.sln
 ```
 
-To run the Payment Gateway API
+### To run the Payment Gateway API
+
+Before running the below `dotnet run` command, please update the `appsettings.json` file as shown below;
+
+- in `src\PaymentGateway\appsettings.json`, update the `bank-api-options.ApiHost`  to `"localhost:5001"`
+- in `src\BankApi\ApiStub\appsettings.json`, update the `WireMockServerSettings.Urls` to `["http://localhost:5001"]`
 
 ``` shell
-dotnet run "src\PaymentGateway\PaymentGateway.csproj"
+cd "src\PaymentGateway\"
+dotnet run PaymentGateway.csproj
 ```
 
 To run the Bank API - ApiStub 
 ``` shell
-dotnet run "src\BankApi\ApiStub\ApiStub.csproj"
+cd "src\BankApi\ApiStub\"
+dotnet run ApiStub.csproj
 ```
+
+## How to build and run multiple projects
+
+Below are the video links to the screen recording that shows how to build, run and test the Payment Gateway API integrated with Bank API (ApiStub)
+
+[Using dockercompose via command line](https://youtu.be/nJziB89L1ZQ)
+
+[Run Multiple Startup Projects On VS2019](https://youtu.be/mHGy1guzI0M)
+
+[Run Using DockerCompose On VS2019 ](https://youtu.be/Qp881QRFvXc)
+
+## Sample payload for Payments API
+
+- sample payload for success `POST /api/payments/` API
+
+```json
+{
+  "cardNumber": "1234-1234-1234-1234",
+  "expiryMonth": "Mar",
+  "expiryYear": "2021",
+  "amount": 12340,
+  "currency": "GBP",
+  "cvv": "123"
+}
+```
+
+- sample payload for failed `POST /api/payments/` API
+
+```json
+{
+  "cardNumber": "9999-9999-9999-9999",
+  "expiryMonth": "Mar",
+  "expiryYear": "2021",
+  "amount": 12340,
+  "currency": "GBP",
+  "cvv": "123"
+}
+```
+
